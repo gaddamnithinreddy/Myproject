@@ -56,8 +56,8 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4 py-12 dark:bg-gray-950">
-      <Card className="w-full max-w-md">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-50 px-4 py-12">
+      <Card className="w-full max-w-md shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-3xl font-bold">Login</CardTitle>
           <CardDescription>Enter your credentials to access your account.</CardDescription>
@@ -65,7 +65,7 @@ export default function LoginPage() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-gray-700 font-medium">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -73,17 +73,19 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
               />
               {fieldErrors.email && <p className="text-xs text-red-600">{fieldErrors.email}</p>}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-gray-700 font-medium">Password</Label>
               <Input
                 id="password"
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
               />
               {fieldErrors.password && <p className="text-xs text-red-600">{fieldErrors.password}</p>}
             </div>
@@ -94,21 +96,21 @@ export default function LoginPage() {
                   checked={rememberMe}
                   onCheckedChange={(checked) => setRememberMe(!!checked)}
                 />
-                <Label htmlFor="remember-me">Remember me</Label>
+                <Label htmlFor="remember-me" className="text-gray-700">Remember me</Label>
               </div>
-              <Link href="/auth/forgot-password" className="text-sm underline">
+              <Link href="/auth/forgot-password" className="text-sm underline text-blue-600 hover:text-blue-800">
                 Forgot password?
               </Link>
             </div>
             {error && <p className="text-sm text-red-600 text-center">{error}</p>}
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-medium py-3" disabled={loading}>
               {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Login"}
             </Button>
             {loginError && <p className="text-sm text-red-600 text-center">{loginError}</p>}
           </form>
-          <div className="mt-4 text-center text-sm">
+          <div className="mt-4 text-center text-sm text-gray-600">
             Don't have an account?{" "}
-            <Link href="/auth/register" className="underline">
+            <Link href="/auth/register" className="underline text-blue-600 hover:text-blue-800">
               Register
             </Link>
           </div>

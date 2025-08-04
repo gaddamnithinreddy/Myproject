@@ -1,0 +1,10 @@
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export async function GET(request: NextRequest) {
+  return NextResponse.json({ message: 'pong' });
+}
+
+export async function HEAD(request: NextRequest) {
+  return new Response(null, { status: 200 });
+} 

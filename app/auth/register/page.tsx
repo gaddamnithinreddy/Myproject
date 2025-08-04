@@ -179,20 +179,20 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4 py-12 dark:bg-gray-950">
-      <Card className="w-full max-w-2xl">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-50 px-4 py-12">
+      <Card className="w-full max-w-2xl shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-3xl font-bold">Register</CardTitle>
-          <CardDescription>Create your account to get started.</CardDescription>
+          <CardTitle className="text-3xl font-bold text-gray-800">Register</CardTitle>
+          <CardDescription className="text-gray-600">Create your account to get started.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Account Details */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Account Details</h3>
+              <h3 className="text-lg font-medium text-gray-800">Account Details</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="text-gray-700 font-medium">Email</Label>
                   <Input
                     id="email"
                     type="email"
@@ -200,11 +200,12 @@ export default function RegisterPage() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
+                    className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                   />
                   {fieldErrors.email && <p className="text-xs text-red-600">{fieldErrors.email}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="mobileNumber">Mobile Number</Label>
+                  <Label htmlFor="mobileNumber" className="text-gray-700 font-medium">Mobile Number</Label>
                   <Input
                     id="mobileNumber"
                     type="tel"
@@ -212,31 +213,34 @@ export default function RegisterPage() {
                     required
                     value={formData.mobileNumber}
                     onChange={handleInputChange}
+                    className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                   />
                   {fieldErrors.mobileNumber && <p className="text-xs text-red-600">{fieldErrors.mobileNumber}</p>}
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password" className="text-gray-700 font-medium">Password</Label>
                   <Input
                     id="password"
                     type="password"
                     required
                     value={formData.password}
                     onChange={handleInputChange}
+                    className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                   />
                   <PasswordStrengthChecker password={formData.password} />
                   {fieldErrors.password && <p className="text-xs text-red-600">{fieldErrors.password}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">Confirm Password</Label>
+                  <Label htmlFor="confirmPassword" className="text-gray-700 font-medium">Confirm Password</Label>
                   <Input
                     id="confirmPassword"
                     type="password"
                     required
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
+                    className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                   />
                   {fieldErrors.confirmPassword && <p className="text-xs text-red-600">{fieldErrors.confirmPassword}</p>}
                 </div>
@@ -245,27 +249,29 @@ export default function RegisterPage() {
 
             {/* Personal Details */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Personal Details</h3>
+              <h3 className="text-lg font-medium text-gray-800">Personal Details</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name</Label>
+                  <Label htmlFor="firstName" className="text-gray-700 font-medium">First Name</Label>
                   <Input
                     id="firstName"
                     placeholder="John"
                     required
                     value={formData.firstName}
                     onChange={handleInputChange}
+                    className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                   />
                   {fieldErrors.firstName && <p className="text-xs text-red-600">{fieldErrors.firstName}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name</Label>
+                  <Label htmlFor="lastName" className="text-gray-700 font-medium">Last Name</Label>
                   <Input
                     id="lastName"
                     placeholder="Doe"
                     required
                     value={formData.lastName}
                     onChange={handleInputChange}
+                    className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                   />
                   {fieldErrors.lastName && <p className="text-xs text-red-600">{fieldErrors.lastName}</p>}
                 </div>
@@ -273,20 +279,21 @@ export default function RegisterPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="dateOfBirth">Date of Birth</Label>
+                <Label htmlFor="dateOfBirth" className="text-gray-700 font-medium">Date of Birth</Label>
                 <Input
                   id="dateOfBirth"
                   type="date"
                   required
                   value={formData.dateOfBirth}
                   onChange={handleInputChange}
+                  className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                 />
                 {fieldErrors.dateOfBirth && <p className="text-xs text-red-600">{fieldErrors.dateOfBirth}</p>}
               </div>
               <div className="space-y-2">
-                <Label htmlFor="gender">Gender</Label>
+                <Label htmlFor="gender" className="text-gray-700 font-medium">Gender</Label>
                 <Select value={formData.gender} onValueChange={(value) => handleSelectChange("gender", value)} required>
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-white border-gray-300 text-gray-800 focus:border-blue-500 focus:ring-blue-500">
                     <SelectValue placeholder="Select gender" />
                   </SelectTrigger>
                   <SelectContent>
@@ -301,9 +308,9 @@ export default function RegisterPage() {
 
             {/* Location Details */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Location Details</h3>
+              <h3 className="text-lg font-medium text-gray-800">Location Details</h3>
               <div className="space-y-2">
-                <Label htmlFor="address">Address</Label>
+                <Label htmlFor="address" className="text-gray-700 font-medium">Address</Label>
                 <Input
                   id="address"
                   value={formData.address}
@@ -311,13 +318,14 @@ export default function RegisterPage() {
                   placeholder="Select location on map or type address"
                   required
                   readOnly={false} // Allow manual entry
+                  className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                 />
                 {!formData.address && (
-                  <div className="text-xs text-muted-foreground">You can type your address or select it on the map.</div>
+                  <div className="text-xs text-gray-500">You can type your address or select it on the map.</div>
                 )}
                 <Dialog open={isMapPickerOpen} onOpenChange={setIsMapPickerOpen}>
                   <DialogTrigger asChild>
-                    <Button type="button" variant="outline" className="w-full bg-transparent">
+                    <Button type="button" variant="outline" className="w-full bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-blue-500">
                       <MapPin className="mr-2 h-4 w-4" />
                       Select Location on Map
                     </Button>
@@ -333,25 +341,26 @@ export default function RegisterPage() {
               {formData.address && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="city">City</Label>
-                    <Input id="city" value={formData.city} onChange={handleInputChange} placeholder="Enter city or select location on map" />
+                    <Label htmlFor="city" className="text-gray-700 font-medium">City</Label>
+                    <Input id="city" value={formData.city} onChange={handleInputChange} placeholder="Enter city or select location on map" className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="state">State</Label>
-                    <Input id="state" value={formData.state} onChange={handleInputChange} placeholder="Enter state or select location on map" />
+                    <Label htmlFor="state" className="text-gray-700 font-medium">State</Label>
+                    <Input id="state" value={formData.state} onChange={handleInputChange} placeholder="Enter state or select location on map" className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="country">Country</Label>
-                    <Input id="country" value={formData.country} onChange={handleInputChange} placeholder="Enter country or select location on map" />
+                    <Label htmlFor="country" className="text-gray-700 font-medium">Country</Label>
+                    <Input id="country" value={formData.country} onChange={handleInputChange} placeholder="Enter country or select location on map" className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="zipCode">Zip Code</Label>
+                    <Label htmlFor="zipCode" className="text-gray-700 font-medium">Zip Code</Label>
                     <Input
                       id="zipCode"
                       value={formData.zipCode}
                       onChange={handleInputChange}
                       placeholder="Enter zip code or select location on map"
                       required
+                      className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                     />
                     {fieldErrors.zipCode && <p className="text-xs text-red-600">{fieldErrors.zipCode}</p>}
                   </div>
@@ -361,15 +370,15 @@ export default function RegisterPage() {
 
             {/* User Type & Referral */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">User Type & Referral</h3>
+              <h3 className="text-lg font-medium text-gray-800">User Type & Referral</h3>
               <div className="space-y-2">
-                <Label htmlFor="userType">I am a...</Label>
+                <Label htmlFor="userType" className="text-gray-700 font-medium">I am a...</Label>
                 <Select
                   value={formData.userType}
                   onValueChange={(value) => handleSelectChange("userType", value)}
                   required
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-white border-gray-300 text-gray-800 focus:border-blue-500 focus:ring-blue-500">
                     <SelectValue placeholder="Select user type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -381,23 +390,25 @@ export default function RegisterPage() {
               </div>
               {(formData.userType === "organization" || formData.userType === "club") && (
                 <div className="space-y-2">
-                  <Label htmlFor="organizationName">Organization/Club Name</Label>
+                  <Label htmlFor="organizationName" className="text-gray-700 font-medium">Organization/Club Name</Label>
                   <Input
                     id="organizationName"
                     placeholder="e.g., Elite Sports Club"
                     value={formData.organizationName}
                     onChange={handleInputChange}
                     required={formData.userType === "organization" || formData.userType === "club"}
+                    className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                   />
                 </div>
               )}
               <div className="space-y-2">
-                <Label htmlFor="referralCode">Referral Code (optional)</Label>
+                <Label htmlFor="referralCode" className="text-gray-700 font-medium">Referral Code (optional)</Label>
                 <Input
                   id="referralCode"
                   placeholder="Enter referral code"
                   value={referralCode}
                   onChange={e => setReferralCode(e.target.value)}
+                  className="bg-white border-gray-300 text-gray-800 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -412,10 +423,10 @@ export default function RegisterPage() {
               />
               <Label
                 htmlFor="terms"
-                className="text-sm font-normal leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm font-normal text-gray-700 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
                 I agree to the{" "}
-                <Link href="#" className="underline">
+                <Link href="#" className="underline text-blue-600 hover:text-blue-800">
                   Terms & Conditions
                 </Link>
               </Label>
@@ -425,7 +436,7 @@ export default function RegisterPage() {
             {passwordError && <p className="text-sm text-red-600 text-center">{passwordError}</p>}
             {error && <p className="text-sm text-red-600 text-center">{error}</p>}
 
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-medium py-3" disabled={loading}>
               {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Register"}
             </Button>
           </form>
